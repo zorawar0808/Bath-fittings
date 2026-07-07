@@ -1,0 +1,73 @@
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+@theme {
+  --color-industrial-50: #f8fafc;
+  --color-industrial-100: #f1f5f9;
+  --color-industrial-200: #e2e8f0;
+  --color-industrial-300: #cbd5e1;
+  --color-industrial-400: #94a3b8;
+  --color-industrial-500: #64748b;
+  --color-industrial-600: #475569;
+  --color-industrial-700: #334155;
+  --color-industrial-800: #1e293b;
+  --color-industrial-900: #0f172a;
+  --color-industrial-950: #020617;
+
+  --color-steel-50: #f0f7ff;
+  --color-steel-100: #e0effe;
+  --color-steel-200: #bae2fd;
+  --color-steel-300: #7dd2fc;
+  --color-steel-400: #38bdf8;
+  --color-steel-500: #0ea5e9;
+  --color-steel-600: #0284c7;
+  --color-steel-700: #0369a1;
+  --color-steel-800: #075985;
+  --color-steel-900: #0c4a6e;
+  
+  --font-sans: "Outfit", "Inter", "system-ui", "sans-serif";
+}
+
+@layer base {
+  body {
+    @apply bg-industrial-100 text-industrial-800 antialiased font-sans selection:bg-steel-500 selection:text-white;
+  }
+}
+
+/* Custom modern scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  @apply bg-industrial-200;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-industrial-400 rounded-md hover:bg-industrial-500 transition-colors;
+}
+
+/* Glassmorphism panel helpers */
+.panel-glass {
+  @apply bg-white/90 backdrop-blur-md border border-industrial-200/60 shadow-sm rounded-xl;
+}
+
+/* Status-badge helpers */
+.badge-pending {
+  @apply bg-amber-50 text-amber-700 border border-amber-200 px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider;
+}
+.badge-in_progress {
+  @apply bg-sky-50 text-sky-700 border border-sky-200 px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider;
+}
+.badge-completed {
+  @apply bg-emerald-50 text-emerald-700 border border-emerald-200 px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider;
+}
+.badge-cancelled {
+  @apply bg-rose-50 text-rose-700 border border-rose-200 px-2 py-0.5 rounded text-xs font-semibold uppercase tracking-wider;
+}
+
+/* Tooltip & micro-animations */
+.hover-scale {
+  @apply transition-all duration-200 hover:scale-[1.01] hover:shadow-md active:scale-95;
+}
